@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 KidsChat Playground! 🎮</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title" data-macaly="main-title">
+                🤖 KidsChat Playground! 🎮
+            </h1>
+            <p class="subtitle" data-macaly="subtitle">
+                Chat with Robo, play games, and have fun! 🌟
+            </p>
+            
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-section="welcome">
+                    🏠 Home
+                </button>
+                <button class="nav-btn" data-section="chat">
+                    💬 Chat with Robo
+                </button>
+                <button class="nav-btn" data-section="games">
+                    🎮 Play Games
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section id="welcome" class="section active">
+                <div class="welcome-card">
+                    <div class="welcome-content">
+                        <div class="welcome-emoji">🌟</div>
+                        <h2 class="welcome-title">Welcome to KidsChat Playground!</h2>
+                        <p class="welcome-description">
+                            Hi there, awesome kid! 👋 I'm Robo, your friendly chatbot buddy! 
+                            I'm here to chat, play games, and have tons of fun with you! 
+                            This is a safe space where we can learn and play together! 🎉
+                        </p>
+                        <div class="welcome-features">
+                            <div class="feature">
+                                <span class="feature-emoji">💬</span>
+                                <h3>Chat with Robo</h3>
+                                <p>Have fun conversations about animals, colors, and more!</p>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-emoji">🎮</span>
+                                <h3>Play Games</h3>
+                                <p>Solve riddles, do math, test your memory, and guess animals!</p>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-emoji">🌈</span>
+                                <h3>Learn & Have Fun</h3>
+                                <p>Discover new things while having a blast!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Section -->
+            <section id="chat" class="section">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2 class="chat-title">
+                            <span class="bounce">🤖</span>
+                            Chat with Robo!
+                            <span class="bounce">💬</span>
+                        </h2>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-header">
+                                <span class="bot-emoji">🤖</span>
+                                <span class="bot-name">Robo</span>
+                            </div>
+                            <p class="message-text">Hi there! I'm Robo! 🤖 I'm super excited to chat with you! What's your name? 😊</p>
+                            <p class="message-time"></p>
+                        </div>
+                    </div>
+                    <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type your message here... 😊" maxlength="200">
+                        <button id="sendButton" class="send-btn">Send 🚀</button>
+                    </div>
+                    <p class="chat-disclaimer">
+                        Remember: Be kind, have fun, and always tell a grown-up if something doesn't feel right! 😊
+                    </p>
+                </div>
+            </section>
+
+            <!-- Games Section -->
+            <section id="games" class="section">
+                <div class="games-container">
+                    <h2 class="games-title" data-macaly="games-title">
+                        🎮 Choose Your Game! 🎮
+                    </h2>
+                    
+                    <!-- Game Selection -->
+                    <div id="gameSelection" class="game-selection">
+                        <div class="game-card" data-game="riddle">
+                            <div class="game-emoji bounce">🧩</div>
+                            <h3 class="game-title">Riddle Time!</h3>
+                            <p class="game-description">Solve fun riddles and brain teasers!</p>
+                            <button class="game-btn">Play Now! 🚀</button>
+                        </div>
+                        <div class="game-card" data-game="math">
+                            <div class="game-emoji bounce">🔢</div>
+                            <h3 class="game-title">Math Adventure!</h3>
+                            <p class="game-description">Practice math with fun problems!</p>
+                            <button class="game-btn">Play Now! 🚀</button>
+                        </div>
+                        <div class="game-card" data-game="memory">
+                            <div class="game-emoji bounce">🧠</div>
+                            <h3 class="game-title">Memory Challenge!</h3>
+                            <p class="game-description">Test your memory with emoji patterns!</p>
+                            <button class="game-btn">Play Now! 🚀</button>
+                        </div>
+                        <div class="game-card" data-game="guess">
+                            <div class="game-emoji bounce">🐾</div>
+                            <h3 class="game-title">Animal Guessing!</h3>
+                            <p class="game-description">Guess the animal from clues!</p>
+                            <button class="game-btn">Play Now! 🚀</button>
+                        </div>
+                    </div>
+
+                    <!-- Game Play Areas -->
+                    <div id="riddleGame" class="game-play" style="display: none;">
+                        <div class="game-card-play">
+                            <div class="game-header">
+                                <h3><span class="bounce">🧩</span> Riddle Time! <span class="bounce">🧩</span></h3>
+                                <p class="score">Score: <span id="riddleScore">0</span> points! 🌟</p>
+                            </div>
+                            <div class="game-content">
+                                <div class="riddle-content">
+                                    <h4>Riddle #<span id="riddleNumber">1</span></h4>
+                                    <p id="riddleQuestion" class="riddle-question"></p>
+                                    <p id="riddleHint" class="riddle-hint"></p>
+                                </div>
+                                <div class="game-input">
+                                    <input type="text" id="riddleAnswer" placeholder="Type your answer here...">
+                                    <button id="riddleSubmit" class="game-submit-btn">Submit Answer! 🚀</button>
+                                </div>
+                                <div id="riddleFeedback" class="game-feedback" style="display: none;"></div>
+                            </div>
+                            <button class="back-btn" onclick="backToGameSelection()">Back to Games 🏠</button>
+                        </div>
+                    </div>
+
+                    <div id="mathGame" class="game-play" style="display: none;">
+                        <div class="game-card-play">
+                            <div class="game-header">
+                                <h3><span class="bounce">🔢</span> Math Adventure! <span class="bounce">🔢</span></h3>
+                                <p class="score">Score: <span id="mathScore">0</span> points! 🌟</p>
+                            </div>
+                            <div class="game-content">
+                                <div class="math-problem">
+                                    <div id="mathProblem" class="math-display"></div>
+                                </div>
+                                <div class="game-input">
+                                    <input type="number" id="mathAnswer" placeholder="Type your answer here...">
+                                    <button id="mathSubmit" class="game-submit-btn">Submit Answer! 🚀</button>
+                                </div>
+                                <div id="mathFeedback" class="game-feedback" style="display: none;"></div>
+                            </div>
+                            <button class="back-btn" onclick="backToGameSelection()">Back to Games 🏠</button>
+                        </div>
+                    </div>
+
+                    <div id="memoryGame" class="game-play" style="display: none;">
+                        <div class="game-card-play">
+                            <div class="game-header">
+                                <h3><span class="bounce">🧠</span> Memory Challenge! <span class="bounce">🧠</span></h3>
+                                <p class="score">Score: <span id="memoryScore">0</span> points! 🌟</p>
+                            </div>
+                            <div class="game-content">
+                                <div id="memoryInstructions" class="memory-instructions">
+                                    <p>Remember the sequence of emojis! 🎯</p>
+                                    <button id="memoryStart" class="game-submit-btn">Start Game! 🚀</button>
+                                </div>
+                                <div id="memorySequence" class="memory-sequence" style="display: none;"></div>
+                                <div id="memoryInput" class="memory-input" style="display: none;">
+                                    <p>Click the emojis in the same order! 🎯</p>
+                                    <div class="memory-grid"></div>
+                                </div>
+                                <div id="memoryFeedback" class="game-feedback" style="display: none;"></div>
+                            </div>
+                            <button class="back-btn" onclick="backToGameSelection()">Back to Games 🏠</button>
+                        </div>
+                    </div>
+
+                    <div id="guessGame" class="game-play" style="display: none;">
+                        <div class="game-card-play">
+                            <div class="game-header">
+                                <h3><span class="bounce">🐾</span> Animal Guessing! <span class="bounce">🐾</span></h3>
+                                <p class="score">Score: <span id="guessScore">0</span> points! 🌟</p>
+                            </div>
+                            <div class="game-content">
+                                <div class="guess-content">
+                                    <h4>Guess the Animal! 🔍</h4>
+                                    <div id="animalClues" class="animal-clues"></div>
+                                </div>
+                                <div class="game-input">
+                                    <input type="text" id="animalGuess" placeholder="What animal am I?">
+                                    <button id="guessSubmit" class="game-submit-btn">Submit Guess! 🚀</button>
+                                </div>
+                                <div id="guessFeedback" class="game-feedback" style="display: none;"></div>
+                            </div>
+                            <button class="back-btn" onclick="backToGameSelection()">Back to Games 🏠</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
